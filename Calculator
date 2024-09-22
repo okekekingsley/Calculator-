@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Calculator {
+
+    public static void main(String[] args) {
+        // Create a Scanner object to get user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to enter the first number
+        System.out.println("Enter the first number:");
+        double num1 = scanner.nextDouble();
+
+        // Ask the user to enter the second number
+        System.out.println("Enter the second number:");
+        double num2 = scanner.nextDouble();
+
+        // Ask the user to choose an operation
+        System.out.println("Choose an operation (+, -, *, /):");
+        char operation = scanner.next().charAt(0);
+
+        double result;
+
+        // Perform the chosen operation
+        switch (operation) {
+            case '+':
+                result = num1 + num2; // Addition
+                System.out.println("The result is: " + result);
+                break;
+            case '-':
+                result = num1 - num2; // Subtraction
+                System.out.println("The result is: " + result);
+                break;
+            case '*':
+                result = num1 * num2; // Multiplication
+                System.out.println("The result is: " + result);
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2; // Division
+                    System.out.println("The result is: " + result);
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                }
+                break;
+            default:
+                System.out.println("Invalid operation. Please choose +, -, *, or /.");
+                break;
+        }
+
+        // Close the scanner to avoid resource leaks
+        scanner.close();
+    }
+}
